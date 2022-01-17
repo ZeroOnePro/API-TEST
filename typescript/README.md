@@ -1,7 +1,7 @@
 ## test
 
 ```bash
-$ ts-node holiday.ts
+$ ts-node service.loader.ts
 
 ```
 
