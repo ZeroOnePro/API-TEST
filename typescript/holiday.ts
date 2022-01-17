@@ -1,9 +1,11 @@
 import axios from 'axios';
 import dotenv from 'dotenv';
 import { eq, map } from 'lodash';
-const moment = require('moment');
+const moment = require('moment'); // tsconfig esModuleInterop를 true로 하면 import문제가 해결된다는데 잘 안되는데 나중에 다시보기
 
-dotenv.config();
+dotenv.config({
+  path: '/.env',
+});
 
 export class HolidayService {
   constructor() {}
@@ -39,10 +41,10 @@ export class HolidayService {
       return [
         ...map(item, (object) => ({
           year,
-          dateName: object.dateName,
-          locDate: `${String(object.locdate).slice(0, 4)}-${String(
-            object.locdate,
-          ).slice(4, 6)}-${String(object.locdate).slice(6, 8)}`,
+          dateName: object?.dateName,
+          locDate: `${String(object?.locdate).slice(0, 4)}-${String(
+            object?.locdate,
+          ).slice(4, 6)}-${String(object?.locdate).slice(6, 8)}`,
           dateKind: 'national',
         })),
       ];

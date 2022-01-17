@@ -1,5 +1,10 @@
+import dotenv from 'dotenv';
 import { uniqBy } from "lodash";
 import { HolidayService } from "./holiday";
+
+dotenv?.config({
+  path: './.env'
+});
 
 const reader = require('readline').createInterface({
     input: process.stdin,
